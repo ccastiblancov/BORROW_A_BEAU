@@ -1,13 +1,15 @@
 
-<h2>This is the details of your potential boyfriend:</h2>
+<h2>These are the details of your potential boyfriend:</h2>
 
 <h2><%= @profile.boyfriendname %></h2>
-<h2><%= @user.age %></h2>
-<h2><%= @user.description %></h2>
-<h2><%= @user.gender %></h2>
-<h2><%= @user.location %></h2>
-<h2><%= @user.interest %></h2>
+<h5><%= @profile.age %></h5>
+<h5><%= @profile.location %></h5>
+<p><%= @profile.description %></p>
+
 
 <% @profile.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
 <% end %>
+<br>
+
+<%= link_to "Go back", profiles_path %>

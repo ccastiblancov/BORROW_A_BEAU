@@ -3,6 +3,9 @@
 <ul>
   <% @profiles.each do |profile| %>
     <li><%= profile.boyfriendname %></li>
+        <p>
+          <%= link_to "Show details of this boyfriend", profile %>
+        </p>
   <% end %>
 </ul>
 
