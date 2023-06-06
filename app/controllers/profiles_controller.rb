@@ -26,6 +26,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:boyfriendname)
+    params.require(:profile).permit(:boyfriendname, photos: [])
   end
 end
