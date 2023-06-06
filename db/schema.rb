@@ -10,8 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_092234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "profiles_id"
+    t.index ["profiles_id"], name: "index_bookings_on_profiles_id"
+    t.index ["users_id"], name: "index_bookings_on_users_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_profiles_on_users_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "bookings_id"
+    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "age"
+    t.text "description"
+    t.string "gender"
+    t.string "location"
+    t.text "interest"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bookings", "profiles", column: "profiles_id"
+  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "profiles", "users", column: "users_id"
+  add_foreign_key "reviews", "bookings", column: "bookings_id"
 end
