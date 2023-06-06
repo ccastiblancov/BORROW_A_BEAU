@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_092234) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_132038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "profiles_id"
-    t.index ["profiles_id"], name: "index_bookings_on_profiles_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.bigint "user_id"
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_bookings_on_profile_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_profiles_on_users_id"
+    t.bigint "user_id"
+    t.string "boyfriendname"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -35,8 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_092234) do
     t.datetime "updated_at", null: false
     t.integer "rating"
     t.text "comment"
-    t.bigint "bookings_id"
-    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_092234) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "profiles", column: "profiles_id"
-  add_foreign_key "bookings", "users", column: "users_id"
-  add_foreign_key "profiles", "users", column: "users_id"
-  add_foreign_key "reviews", "bookings", column: "bookings_id"
+  add_foreign_key "bookings", "profiles"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "reviews", "bookings"
 end

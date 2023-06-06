@@ -1,0 +1,8 @@
+<h2>Register as a new boyfriend:</h2>
+
+<%= form_with(model: @profile, url: profiles_path) do |f| %>
+  <%= f.label :boyfriendname %>
+  <%= f.text_field :boyfriendname %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+<% end %>
