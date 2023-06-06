@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking, notice: "Booking has been created."
     else
-      rendor :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to @booking, notice: "Booking is saved."
     else
-      rendor :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
