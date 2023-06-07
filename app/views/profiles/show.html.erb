@@ -1,0 +1,26 @@
+
+<h2>These are the details of your potential boyfriend:</h2>
+
+<h2><%= @profile.boyfriendname %></h2>
+<h5><%= @profile.age %></h5>
+<h5><%= @profile.location %></h5>
+<p><%= @profile.description %></p>
+
+
+<% @profile.photos.each do |photo| %>
+  <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+<% end %>
+<br>
+
+<%= link_to "Go Back", profiles_path %>
+
+
+<% if policy(@profile).edit? %>
+  <%= link_to "Edit your profile", edit_profile_path(@profile) %> |
+<% end %>
+
+<% if policy(@profile).delete? %>
+<%= link_to "Delete", profile_path(@profile),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<% end %>

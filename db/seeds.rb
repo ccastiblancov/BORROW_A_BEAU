@@ -16,13 +16,7 @@ require 'faker'
 #5.times do
   user = User.create!(
     email: "email@gmail.com",
-    password: "password",
-    name: "GeneralUser",
-    age: rand(18..65),
-    description: Faker::Lorem.sentence,
-    gender: ['Male', 'Female', 'Other'].sample,
-    location: Faker::Address.city,
-    interest: Faker::Lorem.paragraph
+    password: "password"
   )
   puts "Created user with email: #{user.email}"
 
