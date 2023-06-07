@@ -1,16 +1,16 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Bookings.all
+    @bookings = Booking.all
   end
 
   def new
-    @booking = Bookings.new
+    @booking = Booking.new
     @booking.user = current_user
   end
 
   def create
-    @booking = Bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to @booking, notice: "Booking has been created."
     else
