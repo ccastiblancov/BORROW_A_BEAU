@@ -1,8 +1,11 @@
-<h1>Book a Beau</h1>
-
-<%= simple_form_for @booking do |form| %>
-  <%= form.input :user_id, collection: User.all, label: 'User' %>
-  <%= form.input :profile_id, collection: Profile.all, label: 'Profile' %>
-
-  <%= form.button :submit, class: 'btn btn-primary' %>
+<h1>New Booking</h1>
+<%= form_with model: @booking, url: bookings_path do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <div class="field">
+    <%= form.label :booking_id %>
+    <%= form.number_field :booking_id %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Create Booking" %>
+  </div>
 <% end %>
