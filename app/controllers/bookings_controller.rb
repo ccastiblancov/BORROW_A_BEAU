@@ -2,7 +2,11 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @review = review.new
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @review = Review.new
   end
 
   def new
