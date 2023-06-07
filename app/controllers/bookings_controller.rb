@@ -6,11 +6,11 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @booking.user = current_user
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     if @booking.save
       redirect_to @booking, notice: "Booking has been created."
     else

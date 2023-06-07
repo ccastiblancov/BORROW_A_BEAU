@@ -79,6 +79,7 @@ end
 gem "devise"
 gem "faker"
 
+
 gem "pundit"
 gem "bootstrap"
 gem "cloudinary"
