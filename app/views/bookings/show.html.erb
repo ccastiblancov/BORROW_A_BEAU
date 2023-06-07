@@ -1,0 +1,21 @@
+<!-- Create a review -->
+<%= simple_form_for([@booking, @review]) do |f|%>
+  <!-- Review form fields here -->
+  <%= f.text_field :title %>
+  <%= f.text_area :content %>
+  <%= f.number_field :rating %>
+
+  <%= f.submit 'Create Review' %>
+<% end %>
+
+<!-- Update a review -->
+<% if @booking.review %>
+  <%= form_with(model: @booking.review, url: booking_review_path(@booking, @booking.review), local: true, method: :patch) do |form| %>
+    <!-- Review form fields here -->
+    <%= form.text_field :title %>
+    <%= form.text_area :content %>
+    <%= form.number_field :rating %>
+
+    <%= form.submit 'Update Review' %>
+  <% end %>
+<% end %>
