@@ -1,0 +1,12 @@
+<h2>These are our boyfriends:</h2>
+
+<ul>
+  <% @profiles.each do |profile| %>
+    <li><%= profile.boyfriendname %></li>
+        <p>
+          <%= link_to "Show details of this boyfriend", profile %>
+        </p>
+  <% end %>
+</ul>
+
+<%= link_to "Register as a boyfriend", new_profile_path %>
