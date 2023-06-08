@@ -1,11 +1,6 @@
-<h1>New Booking</h1>
-<%= form_with model: @booking, url: bookings_path do |form| %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <div class="field">
-    <%= form.label :booking_id %>
-    <%= form.number_field :booking_id %>
-  </div>
+<h1>Book your next partner</h1>
+<%= form_with model: [@profile, @booking], url: profile_bookings_path(@profile) do |form| %>
   <div class="actions">
-    <%= form.submit "Create Booking" %>
+    <%= form.submit "Create Booking", class: "btn btn-primary" %>
   </div>
 <% end %>
