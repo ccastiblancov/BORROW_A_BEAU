@@ -22,7 +22,7 @@ class ProfilePolicy < ApplicationPolicy
     record.user == user
   end
 
-  def delete?
+  def destroy?
     record.user == user
   end
 end
