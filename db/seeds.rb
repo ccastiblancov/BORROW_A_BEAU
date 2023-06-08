@@ -14,11 +14,11 @@ require 'faker'
 
 # Generate ten random users
 #5.times do
-  user = User.create!(
-    email: "email@gmail.com",
-    password: "password"
-  )
-  puts "Created user with email: #{user.email}"
+user = User.create!(
+  email: "email@gmail.com",
+  password: "password"
+)
+puts "Created user with email: #{user.email}"
 
 
 # end

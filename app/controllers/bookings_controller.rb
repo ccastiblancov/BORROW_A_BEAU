@@ -1,16 +1,20 @@
 class BookingsController < ApplicationController
 
   def index
+    @bookings = policy_scope(Booking)
     @bookings = Booking.all
   end
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
     @review = Review.new
   end
 
   def new
+    @profile = Profile.find(params[profile_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -21,10 +25,12 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def edit
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
@@ -33,11 +39,13 @@ class BookingsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def destroy
     @booking.destroy
     redirect_to bookings_url, notice: "Booking has been deleted.", status: :see_other
+    authorize @booking
   end
 
   private
