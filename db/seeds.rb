@@ -9,16 +9,21 @@
 
 # Helper method to generate random data
 # db/seeds.rb
+Profile.destroy_all
+User.destroy_all
 
 require 'faker'
+# Generate ten random usersù
+for i in (1..6).to_a do
+  User.create!(
+    email: "user#{i}@gmail.com",
+    password: "123456"
+  )
+end
 
-# Generate ten random users
-#5.times do
-user = User.create!(
-  email: "email@gmail.com",
-  password: "password"
-)
-puts "Created user with email: #{user.email}"
-
-
+puts "Users created"
 # end
+
+User.all.each do |user|
+  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), description: "description", gender: ["male", "female"].sample)
+end

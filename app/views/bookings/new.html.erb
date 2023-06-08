@@ -1,9 +1,5 @@
 <h1>Book your next partner</h1>
-<%= form_with model: @booking, url: bookings_path do |form| %>
-  <div class="field">
-    <%= form.label :booking_id %>
-    <%= form.number_field :booking_id %>
-  </div>
+<%= form_with model: [@profile, @booking], url: profile_bookings_path(@profile) do |form| %>
   <div class="actions">
     <%= form.submit "Create Booking", class: "btn btn-primary" %>
   </div>

@@ -12,14 +12,16 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @profile = Profile.find(params[profile_id])
+    @profile = Profile.find(params[:profile_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new()
     @booking.user = current_user
+    @profile = Profile.find(params[:profile_id])
+    @booking.profile = @profile
     if @booking.save
       redirect_to @booking, notice: "Booking has been created."
     else
@@ -51,6 +53,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :profile_id)
+    params.require(:booking).permit(:user_id, :profile_id, :booking_id)
   end
 end

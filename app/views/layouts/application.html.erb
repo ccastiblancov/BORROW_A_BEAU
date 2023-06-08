@@ -11,18 +11,7 @@
   </head>
 
   <body>
-    <div class="header border-bottom">
-      <h2 class="logo">Borrow A Beau</h2>
-        <nav>
-          <ul class="links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Bookings</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </nav>
-      <a class="cta" href="/users/sign_in"><button>Login</button></a>
-    </div>
+    <%= render "shared/navbar" %>
     <%= yield %>
     <footer>
       <div class="footer-content">
