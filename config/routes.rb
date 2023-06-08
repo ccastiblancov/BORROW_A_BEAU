@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   end
   resources :bookings do
     resources :reviews, only: %i[create update]
+    collection do
+      get :my_bookings
+    end
   end
 end

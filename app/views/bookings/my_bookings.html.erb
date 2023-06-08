@@ -1,0 +1,9 @@
+<div class="container">
+  <%= "Your bookings" %>
+  <% unless @bookings.empty? %>
+    <% @bookings.each do |b| %>
+    <p>With <%= b.profile.boyfriendname %></p>
+    <%= link_to "More", booking_path(b.id) %>
+    <% end %>
+  <% end %>
+</div>
