@@ -45,8 +45,9 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find(params[:id])
     authorize @profile
+
     @profile.destroy
-    # No need for app/views/restaurants/destroy.html.erb
+
     redirect_to profiles_path, status: :see_other
   end
 
