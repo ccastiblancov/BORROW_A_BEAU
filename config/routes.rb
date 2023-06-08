@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :bookings, only: %i[create new]
   end
+
   resources :bookings do
-    resources :reviews, only: %i[create update]
+    resources :reviews, only: [:new, :create]
   end
 end
