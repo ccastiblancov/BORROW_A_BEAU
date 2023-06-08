@@ -14,15 +14,13 @@
 
 <%= link_to "Go Back", profiles_path %>
 
-
 <% if policy(@profile).edit? %>
-  <%= link_to "Edit your profile", edit_profile_path(@profile) %> |
+  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
 <% end %>
 
-<% if policy(@profile).delete? %>
-<%= link_to "Delete", profile_path(@profile),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<% if policy(@profile).destroy? %>
+  <%= link_to "Delete", profile_path(@profile),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>
+
 
 <%= link_to "Book", new_profile_booking_path(@profile) %>

@@ -1,9 +1,14 @@
 <div class="container">
-  <%= "Your bookings" %>
-  <% unless @bookings.empty? %>
-    <% @bookings.each do |b| %>
-    <p>With <%= b.profile.boyfriendname %></p>
-    <%= link_to "More", booking_path(b.id) %>
-    <% end %>
-  <% end %>
+  <div class="bookingcard p-3">
+    <h2 class="fw-bold">Your booking</h2>
+    <div class="m-2">
+      <% unless @bookings.empty? %>
+        <% @bookings.each do |booking| %>
+          <%= link_to booking_path(booking), class:"d-block bookingcard m-2 p-2 bookinglinks" do %>
+            <i class='fa-solid fa-user fa-xs'></i><%= " #{booking.profile.boyfriendname} Rome 30/02/2030" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
