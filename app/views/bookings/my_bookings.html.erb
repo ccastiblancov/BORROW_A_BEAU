@@ -5,7 +5,20 @@
       <% unless @bookings.empty? %>
         <% @bookings.each do |booking| %>
           <%= link_to booking_path(booking), class:"d-block bookingcard m-2 p-2 bookinglinks" do %>
-            <i class='fa-solid fa-user fa-xs'></i><%= " #{booking.profile.boyfriendname} Rome 30/02/2030" %>
+            <div class="row">
+              <div class="col m-3">
+                <i class='fa-solid fa-user fa-xs'></i>
+                <%= " #{booking.profile.boyfriendname}"%>
+                </div>
+              <div class="col m-3">
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <%= " Rome" %>
+              </div>
+              <div class="col m-3">
+                <i class="fa-regular fa-calendar"></i>
+                <%= " 30/02/2030 16:00" %>
+              </div>
+            </div>
           <% end %>
         <% end %>
       <% end %>
