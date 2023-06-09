@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @profile = @booking.profile
     authorize @booking
     @review = Review.new
+    @profile = @booking.profile
   end
 
   def my_bookings

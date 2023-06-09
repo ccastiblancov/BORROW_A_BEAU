@@ -10,6 +10,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def my_bookings?
+    true
+  end
+
   def new?
     true
   end
