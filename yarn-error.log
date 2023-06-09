@@ -33,8 +33,11 @@ npm manifest:
       "@rails/webpacker": "^5.4.4",
       "bootstrap": "^5.3.0",
   <<<<<<< HEAD
+      "flatpickr": "^4.6.13",
+      "mapbox": "^1.0.0-beta10",
       "sortablejs": "^1.15.0",
   =======
+      "sortablejs": "^1.15.0",
       "flatpickr": "^4.6.13",
   >>>>>>> master
       "webpack": "^5.85.0",
@@ -2869,6 +2872,11 @@ Lockfile:
       is-date-object "^1.0.1"
       is-symbol "^1.0.2"
   
+  es6-promise@^4.0.5:
+    version "4.2.8"
+    resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
+    integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
+  
   escalade@^3.1.1:
     version "3.1.1"
     resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
@@ -3067,7 +3075,6 @@ Lockfile:
       locate-path "^5.0.0"
       path-exists "^4.0.0"
   
-  <<<<<<< HEAD
   findup-sync@^3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/findup-sync/-/findup-sync-3.0.0.tgz#17b108f9ee512dfb7a5c7f3c8b27ea9e1a9c08d1"
@@ -3077,6 +3084,11 @@ Lockfile:
       is-glob "^4.0.0"
       micromatch "^3.0.4"
       resolve-dir "^1.0.1"
+  
+  flatpickr@^4.6.13:
+    version "4.6.13"
+    resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.13.tgz#8a029548187fd6e0d670908471e43abe9ad18d94"
+    integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
   
   flatted@^3.2.2:
     version "3.2.7"
@@ -3089,14 +3101,6 @@ Lockfile:
     integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
   
   flush-write-stream@^1.0.0:
-  =======
-  flatpickr@^4.6.13:
-    version "4.6.13"
-    resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.13.tgz#8a029548187fd6e0d670908471e43abe9ad18d94"
-    integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
-  
-  function-bind@^1.1.1:
-  >>>>>>> master
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
     integrity sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w==
@@ -4105,6 +4109,14 @@ Lockfile:
     integrity sha512-4y7uGv8bd2WdM9vpQsiQNo41Ln1NvhvDRuVt0k2JZQ+ezN2uaQes7lZeZ+QQUHOLQAtDaBJ+7wCbi+ab/KFs+w==
     dependencies:
       object-visit "^1.0.0"
+  
+  mapbox@^1.0.0-beta10:
+    version "1.0.0-beta10"
+    resolved "https://registry.yarnpkg.com/mapbox/-/mapbox-1.0.0-beta10.tgz#037561bcb95cbdc066d1dff7e2ce1d6c8539cb8e"
+    integrity sha512-2goOXWE4r7dIYlol0xrReJD1s4l8rTBVTQ2/pcZv5tLnxPWIh8RT3cEDN3cDzDQMpsbQhgNgd7icRZSBL9WkxQ==
+    dependencies:
+      es6-promise "^4.0.5"
+      rest "^2.0.0"
   
   md5.js@^1.3.4:
     version "1.3.5"
@@ -5668,6 +5680,11 @@ Lockfile:
       is-core-module "^2.11.0"
       path-parse "^1.0.7"
       supports-preserve-symlinks-flag "^1.0.0"
+  
+  rest@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/rest/-/rest-2.0.0.tgz#6dfadf66a405c49cfbd5b4bd25b59fd29cd861bc"
+    integrity sha512-MmTKuTuLVARHNnpL1jJjohscJcY3vsaKNz+b2J5v32BcjIVyimKrNv8r8uygeFp9gf8Cm1erhxypdzRFFEPZOA==
   
   ret@~0.1.10:
     version "0.1.15"
