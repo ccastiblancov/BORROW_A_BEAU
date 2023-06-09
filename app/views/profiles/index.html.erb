@@ -1,12 +1,19 @@
 <h2>These are our boyfriends:</h2>
 
-<ul>
+<div class="cards">
   <% @profiles.each do |profile| %>
-    <li><%= profile.boyfriendname %></li>
+    <div class="card">
+      <% unless profile.photos.empty? %>
+        <div class="image-card" style="background-image:url('<%=cl_image_path profile.photos.first.key %>')">
+        </div>
+      <% end %>
+      <ul>
+        <li><%= profile.boyfriendname %></li>
         <p>
-          <%= link_to "Show details of this boyfriend", profile %>
+        <%= link_to "Show details of this boyfriend", profile %>
         </p>
+      </ul>
+    </div>
   <% end %>
-</ul>
-
-<%= link_to "Register as a boyfriend", new_profile_path %>
+</div>
+<%= link_to "Register as a boyfriend", new_profile_path, class: "button-register" %>
