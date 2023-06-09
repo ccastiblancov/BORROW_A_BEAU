@@ -1,0 +1,82 @@
+.pictures {
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  flex-wrap: wrap;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.specific-pic {
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.459);
+  width: 400px;
+  height: auto;
+  margin-bottom: 8px;
+  padding: 20px;
+}
+
+// .specific-pic:hover {
+//   transform: scaleX(-1);
+// }
+
+.button-show {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d63a7691;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button-show:hover {
+  background-color: #c71db0;
+  transition: background-color 0.3s;
+}
+
+.button-edit:hover {
+  background-color: #c71db0;
+  transition: background-color 0.3s;
+}
+
+.button-book-him:hover {
+  background-color: #c71db0;
+  transition: background-color 0.3s;
+}
+
+.button-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.button-book-him {
+  padding: 20px 30px;
+  background-color: #d63a7691;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.button-edit {
+  padding: 10px 20px;
+  background-color: #d63a7691;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.border-style {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  padding: 20px;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.reviews-layout {
+  padding: 12px;
+  margin-bottom: 4px;
+}

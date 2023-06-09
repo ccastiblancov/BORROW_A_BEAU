@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = policy_scope(Booking)
     @bookings = Booking.all
@@ -7,8 +6,15 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @profile = @booking.profile
     authorize @booking
     @review = Review.new
+    @profile = @booking.profile
+  end
+
+  def my_bookings
+    @bookings = current_user.bookings
+    authorize @bookings
   end
 
   def new
@@ -18,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new()
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     @profile = Profile.find(params[:profile_id])
     @booking.profile = @profile
@@ -53,6 +59,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :profile_id, :booking_id)
+    params.require(:booking).permit(:user_id, :profile_id, :booking_id, :date)
   end
 end
