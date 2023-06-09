@@ -9,9 +9,7 @@ export default class extends Controller {
   container: this.element,
   style: 'mapbox://styles/mapbox/streets-v12' // style URL
 })
-  }
 }
-
 #addMarkersToMap() {
   this.markersValue.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
@@ -19,5 +17,6 @@ export default class extends Controller {
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup) // Add this
       .addTo(this.map)
-  });
+    });
+  }
 }
