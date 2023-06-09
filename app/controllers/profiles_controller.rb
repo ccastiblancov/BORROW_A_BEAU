@@ -2,6 +2,18 @@ class ProfilesController < ApplicationController
   def index
     @profiles = policy_scope(Profile)
     @profiles = Profile.all
+    if params[:query].present?
+      sql_subquery = "boyfriendname ILIKE :query OR location ILIKE :query"
+      @profiles = @profiles.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @profiles.geocoded.map do |profile|
+      {
+        lat: profile.latitude,
+        lng: profile.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {profile: profile})
+      }
+    end
   end
 
   def show
@@ -18,6 +30,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
+    @profile.location = profile_params[:location]
     authorize @profile
 
     if @profile.save

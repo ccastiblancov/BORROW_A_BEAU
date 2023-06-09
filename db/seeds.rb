@@ -9,6 +9,7 @@
 
 # Helper method to generate random data
 # db/seeds.rb
+# db/seeds.rb
 Profile.destroy_all
 User.destroy_all
 
@@ -25,5 +26,5 @@ puts "Users created"
 # end
 
 User.all.each do |user|
-  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), description: "description", gender: ["male", "female"].sample)
+  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), location: "85435 Erding")
 end

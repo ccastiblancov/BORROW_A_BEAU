@@ -1,0 +1,54 @@
+.bg-cover {
+  background-size: cover !important;
+  height: 80vh;
+  background: rgba(76, 175, 80, 0.5);
+}
+
+
+.headertext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.main-header {
+  margin-top: 20px;
+  color: rgb(255, 82, 111); /* Example color: bright red */
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.header-lp {
+  padding: 30px;
+}
+
+.headerpar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+
+  font-family: Arial, sans-serif;
+  color: #333333; /* Example color: dark gray */
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.activity {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
