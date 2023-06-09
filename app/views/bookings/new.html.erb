@@ -1,6 +1,9 @@
-<h1>Book your next partner</h1>
-<%= form_with model: [@profile, @booking], url: profile_bookings_path(@profile) do |form| %>
-  <div class="actions">
-    <%= form.submit "Create Booking", class: "btn btn-primary" %>
+<div class="container">
+  <div class="bookingcard p-3">
+    <h1>Book your next partner</h1>
+    <%= simple_form_for [@profile, @booking] do |booking| %>
+      <%= booking.input :date %>
+      <%= booking.submit class: 'bfbutton' %>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -26,5 +26,8 @@ puts "Users created"
 # end
 
 User.all.each do |user|
-  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), location: "85435 Erding", description: Faker::Lorem.paragraph, gender: ["male", "female"].sample)
+  Profile.create(user: user, boyfriendname: Faker::Color.color_name.capitalize, age: rand(18...40), location: "85435 Erding",
+                 description: "I'm a #{Faker::Job.title} in #{Faker::Company.name}.
+                 You can call me #{Faker::FunnyName.name}. I like to do #{Faker::Hobby.activity} with my pet #{Faker::Creature::Animal.name} in #{Faker::House.room}
+                 .#{Faker::Lorem.paragraph}",gender: ["male", "female"].sample, country: "#{Faker::Address.country}")
 end
