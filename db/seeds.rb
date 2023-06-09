@@ -26,5 +26,5 @@ puts "Users created"
 # end
 
 User.all.each do |user|
-  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), location: "85435 Erding")
+  Profile.create(user: user, boyfriendname: Faker::App.name.downcase, age: rand(18...40), location: "85435 Erding", description: Faker::Lorem.paragraph, gender: ["male", "female"].sample)
 end
