@@ -39,36 +39,12 @@
       <% end %>
     </div>
     <div class="col-lg-4">
-      <% if policy(@profile).delete? %>
+      <% if policy(@profile).destroy? %>
       <%= link_to "Delete profile", profile_path(@profile), class: "btn btn-light button-layout ",
         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       <% end %>
     </div>
   </div>
-
-<h2><%= @profile.boyfriendname %></h2>
-<h5><%= @profile.location %></h5>
-<p><%= @profile.description %></p>
-
-
-<% @profile.photos.each do |photo| %>
-  <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
-<% end %>
-<br>
-
-<%= link_to "Go Back", profiles_path %>
-
-<% if policy(@profile).edit? %>
-  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
-<% end %>
-
-<% if policy(@profile).destroy? %>
-  <%= link_to "Delete", profile_path(@profile),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
-
-
-<%= link_to "Book", new_profile_booking_path(@profile) %>
-
 
 <div class="container">
   <h3>Here are all reviews for this profile</h3>
