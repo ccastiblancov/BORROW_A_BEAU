@@ -46,4 +46,50 @@
     </div>
   </div>
 
+<h2><%= @profile.boyfriendname %></h2>
+<h5><%= @profile.location %></h5>
+<p><%= @profile.description %></p>
+
+
+<% @profile.photos.each do |photo| %>
+  <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+<% end %>
+<br>
+
+<%= link_to "Go Back", profiles_path %>
+
+<% if policy(@profile).edit? %>
+  <%= link_to "Edit your profile", edit_profile_path(@profile) %>
+<% end %>
+
+<% if policy(@profile).destroy? %>
+  <%= link_to "Delete", profile_path(@profile),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
+
+
+<%= link_to "Book", new_profile_booking_path(@profile) %>
+
+
+<div class="container">
+  <h3>Here are all reviews for this profile</h3>
+  <hr class="my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>Reviews</h3>
+      <% if @profile.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this profile</em></small>
+      <% else %>
+        <% @profile.reviews.each do |review| %>
+          <div>
+            <% review.rating.times do %>
+              <i class="fas fa-star star-yellow"></i>
+            <% end %>
+            <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+            <p class="mb-0"><%= review.rating %></p>
+            <p class="mb-0"><%= review.comment %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
