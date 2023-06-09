@@ -1,4 +1,7 @@
 <div class="container">
+<div class="row pictures" style="margin-bottom: 20px">
+<h2><%= @profile.boyfriendname %> is waiting for you</h2>
+</div>
   <div class="row">
     <div class="col-lg-8">
       <div class="pictures">
@@ -9,7 +12,7 @@
     </div>
     <div class="col-lg-4">
       <div class="border-style">
-        <h2><%= @profile.boyfriendname %> is waiting for you</h2>
+        <h2><%= @profile.boyfriendname %></h2>
         <h5><%= @profile.age %></h5>
         <h5><%= @profile.location %></h5>
         <p><%= @profile.description %></p>
@@ -17,46 +20,18 @@
           <%= link_to "Book Him Now!", new_profile_booking_path(@profile), class: "button-book-him button-layout"%>
         </div>
       </div>
-      <div class="border-style" style="margin-top: 10px;">
-        <h2><%= @profile.boyfriendname %> is waiting for you</h2>
-        <h5><%= @profile.age %></h5>
-        <h5><%= @profile.location %></h5>
-        <p><%= @profile.description %></p>
-        <div align="center">
-          <%= link_to "See the reviews!", new_profile_booking_path(@profile), class: "button-book-him button-layout"%>
-        </div>
-      </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <%= link_to "Go back", profiles_path, class: "button-show button-layout" %>
-    </div>
-    <div class="col-lg-4">
-      <% if policy(@profile).edit? %>
-        <%= link_to "Edit profile", edit_profile_path(@profile), class: "button-edit button-layout" %>
-      <% end %>
-    </div>
-    <div class="col-lg-4">
-      <% if policy(@profile).destroy? %>
-      <%= link_to "Delete profile", profile_path(@profile), class: "btn btn-light button-layout ",
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      <% end %>
-    </div>
-  </div>
-
 <div class="container">
-  <h3>Here are all reviews for this profile</h3>
-  <hr class="my-5">
+  <hr class="my-6">
   <div class="row">
     <div class="col-12 col-sm-6">
       <h3>Reviews</h3>
       <% if @profile.reviews.empty? %>
-        <small><em class="text-muted">Be the first one to review this profile</em></small>
+        <small><em class="text-muted">Take him for a spin and leave a review!</em></small>
       <% else %>
         <% @profile.reviews.each do |review| %>
-          <div>
+          <div class="reviews-layout border-style">
             <% review.rating.times do %>
               <i class="fas fa-star star-yellow"></i>
             <% end %>
@@ -69,3 +44,19 @@
     </div>
   </div>
 </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= link_to "Go back", profiles_path, class: "button-show button-layout" %>
+    </div>
+    <div class="col-lg-4">
+      <% if policy(@profile).edit? %>
+        <%= link_to "Edit profile", edit_profile_path(@profile), class: "button-edit button-layout" %>
+      <% end %>
+    </div>
+    <div class="col-lg-4">
+      <% if policy(@profile).destroy? %>
+      <%= link_to "Delete profile", profile_path(@profile), class: "btn btn-light button-layout ",
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the profile?" } %>
+      <% end %>
+    </div>
+  </div>
