@@ -39,7 +39,7 @@
       <% end %>
     </div>
     <div class="col-lg-4">
-      <% if policy(@profile).delete? %>
+      <% if policy(@profile).destroy? %>
       <%= link_to "Delete profile", profile_path(@profile), class: "btn btn-light button-layout ",
         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       <% end %>

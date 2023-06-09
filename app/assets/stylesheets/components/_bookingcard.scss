@@ -7,3 +7,23 @@
   width: 100%
 }
 
+.bfbutton {
+  /* Background color */
+  background-color: transparent;
+  /* Text color */
+  color: #F298A7;
+  /* Border */
+  border: 1px solid #F298A7;
+  /* Padding */
+  padding: 0.25rem 1rem;
+  /* Border radius */
+  border-radius: 0.25rem;
+  /* Hover effect */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.bfbutton:hover {
+  background-color: #F298A7;
+  color: #fff;
+}

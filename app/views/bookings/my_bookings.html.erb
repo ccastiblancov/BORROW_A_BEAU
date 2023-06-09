@@ -9,15 +9,19 @@
             <div class="row">
               <div class="col m-3">
                 <i class='fa-solid fa-user fa-xs'></i>
-                <%= " #{booking.profile.boyfriendname}"%>
+                <%= booking.profile.boyfriendname %>
                 </div>
               <div class="col m-3">
                 <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <%= " Rome" %>
+                <%= booking.profile.location %>
               </div>
               <div class="col m-3">
                 <i class="fa-regular fa-calendar"></i>
-                <%= " 30/02/2030 16:00" %>
+                <% if booking.date.nil? %>
+                  <%= "30/02/2055"%>
+                <% else %>
+                  <%= " #{booking.date}" %>
+                <% end %>
               </div>
             </div>
           <% end %>
