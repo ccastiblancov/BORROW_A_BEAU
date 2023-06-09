@@ -1,5 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="pictures">
+        <% @profile.photos.each do |photo| %>
+          <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill, class: "specific-pic") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="border-style">
+        <h2><%= @profile.boyfriendname %> is waiting for you</h2>
+        <h5><%= @profile.age %></h5>
+        <h5><%= @profile.location %></h5>
+        <p><%= @profile.description %></p>
+        <div align="center">
+          <%= link_to "Book Him Now!", new_profile_booking_path(@profile), class: "button-book-him button-layout"%>
+        </div>
+      </div>
+      <div class="border-style" style="margin-top: 10px;">
+        <h2><%= @profile.boyfriendname %> is waiting for you</h2>
+        <h5><%= @profile.age %></h5>
+        <h5><%= @profile.location %></h5>
+        <p><%= @profile.description %></p>
+        <div align="center">
+          <%= link_to "See the reviews!", new_profile_booking_path(@profile), class: "button-book-him button-layout"%>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<h2>These are the details of your potential boyfriend:</h2>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= link_to "Go back", profiles_path, class: "button-show button-layout" %>
+    </div>
+    <div class="col-lg-4">
+      <% if policy(@profile).edit? %>
+        <%= link_to "Edit profile", edit_profile_path(@profile), class: "button-edit button-layout" %>
+      <% end %>
+    </div>
+    <div class="col-lg-4">
+      <% if policy(@profile).delete? %>
+      <%= link_to "Delete profile", profile_path(@profile), class: "btn btn-light button-layout ",
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </div>
 
 <h2><%= @profile.boyfriendname %></h2>
 <h5><%= @profile.location %></h5>
