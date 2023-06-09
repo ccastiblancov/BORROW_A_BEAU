@@ -1,2 +1,50 @@
-boyfriend: <%= @booking.profile.boyfriendname %>
+<div class="container">
+  <div class="">
+    <div class="bookingcard p-3">
+      <p><%= "Your partner is #{@profile.boyfriendname}. Age: #{@profile.age} Gender: #{@profile.gender}" %></p>
+      <p><%= @profile.description %></p>
+      <p><%= @profile.interest %></p>
+    </div>
+    <br>
+    <div class="bookingcard p-3">
+      <p><%= "Date: 30/02/2030 to 32/03/2031" %></p>
+      <p><%= "Location: Mars, Solar System" %></p>
+    </div>
+    <div class="d-flex justify-content-center"><%= link_to "Back",  my_bookings_bookings_path, class:"btn btn-outline-warning justify-content-center, m-5" %></div>
+  </div>
+</div>
 
+
+<div class="container">
+  <h3> Here are all reviews for this booking </h3>
+   <hr class="my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>Reviews</h3>
+      <% if @booking.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this list</em></small>
+      <% end %>
+      <% @booking.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.rating %></p>
+          <p class="mb-0"><%= review.comment %></p>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3">
+        <h5>Add your review</h5>
+            <%= simple_form_for [@booking, @review], url: booking_reviews_path(@booking) do |f| %>
+              <%= f.input :rating, placeholder: 'What is your rating (1-5)?' %>
+              <%= f.input :comment, placeholder: 'Enter a comment about this booking' %>
+              <%= f.submit class: "btn cta" %>
+            <% end %>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<br>
+<div class="container">
+  <div class="bookingcard p-3">
+    <h2 class="fw-bold">Your booking</h2>
+    <div class="m-2">
+      <% unless @bookings.empty? %>
+        <% @bookings.each do |booking| %>
+          <%= link_to booking_path(booking), class:"d-block bookingcard m-2 p-2 bookinglinks" do %>
+            <div class="row">
+              <div class="col m-3">
+                <i class='fa-solid fa-user fa-xs'></i>
+                <%= " #{booking.profile.boyfriendname}"%>
+                </div>
+              <div class="col m-3">
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <%= " Rome" %>
+              </div>
+              <div class="col m-3">
+                <i class="fa-regular fa-calendar"></i>
+                <%= " 30/02/2030 16:00" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
