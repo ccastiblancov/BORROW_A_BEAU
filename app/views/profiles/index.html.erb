@@ -78,16 +78,24 @@
 <!-- Here comes the boyfriends -->
 <h2 class="headertext main-header">Check out Some Boyfriends</h2>
 
-<ul>
+<div class="cards">
   <% @profiles.each do |profile| %>
-    <li><%= profile.boyfriendname %></li>
+    <div class="card">
+      <% unless profile.photos.empty? %>
+        <div class="image-card" style="background-image:url('<%=cl_image_path profile.photos.first.key %>')">
+        </div>
+      <% end %>
+      <ul>
+        <li><%= profile.boyfriendname %></li>
         <p>
-          <%= link_to "Show details of this boyfriend", profile %>
+        <%= link_to "Show details of this boyfriend", profile %>
         </p>
+      </ul>
+    </div>
   <% end %>
-</ul>
+</div>
 
-<%= link_to "Register as a boyfriend", new_profile_path %>
+<%= link_to "Register as a boyfriend", new_profile_path, class: "button-register" %>
 
 <div data-controller='map'
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']=%>"
