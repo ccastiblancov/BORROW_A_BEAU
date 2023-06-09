@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_125856) do
     t.string "gender"
     t.string "location"
     t.text "interest"
+    t.float "latitude"
+    t.float "longitude"
     t.string "country"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end

@@ -53,6 +53,16 @@ button {
   background-color: white;
 }
 
+.button-main {
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border: none;
+  padding: 9px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: pink;
+}
+
 button:hover {
   background-color: #f1b5cb;
 }

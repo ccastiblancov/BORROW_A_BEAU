@@ -3,9 +3,12 @@
   "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.8",
+    "@rails/webpacker": "^5.4.4",
     "bootstrap": "^5.3.0",
+    "sortablejs": "^1.15.0",
     "flatpickr": "^4.6.13",
     "webpack": "^5.85.0",
     "webpack-cli": "^5.1.3"
